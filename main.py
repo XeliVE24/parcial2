@@ -1,56 +1,51 @@
 import pandas as pd
 from libs import *
-df = pd.read_excel ("datos-Eval-2.xlsx")
-
-
 inOrderArr=[]
 PreOrderArr=[]
 PostOrderArr=[]
 
-nodo1 =nodo(1)
-nodo2=nodo(2)
-nodo3= nodo(3)
-nodo4= nodo(4)
-nodo5= nodo(5)
-nodo6= nodo(6)
-nodo7= nodo(7)
+numero=int(input("Cual es mi numero?"))
+archivo=input("Cual es el nombre del archivo a procesar?")
 
+df=pd.read_excel(archivo)
+print(df)
 
-linkhijo(nodo1,nodo2,nodo3)
-linkhijo(nodo2,nodo4,nodo5)
-linkhijo(nodo3,nodo6,nodo7)
-print("Getarbol:")
-print ( nodo1.getArbol())
+print("000000000000000000000000000000000000000000000000000000")
+ArrayNum=df
+###### numero en rojo 
 
-print("--------------------------------------------------------------------------------------")
+#arbol simetrico 
 
-LVR(nodo1,inOrderArr)
+NodoRaiz=nodo(0)
+
+for i in range (1,len(ArrayNum),1):
+    Agreganodos(NodoRaiz,ArrayNum[1])
+Printarbol(NodoRaiz)
+
+LVR(NodoRaiz,inOrderArr)
 print("InOrder:")
 print (inOrderArr)
 
-
-
-VLR(nodo1,PreOrderArr)
-LRV(nodo1,PostOrderArr)
-
+VLR(NodoRaiz,PreOrderArr)
+LRV(NodoRaiz,PostOrderArr)
 
 print ("PreOrder:")
 print(PreOrderArr)
 print("PostOrder:")
 print (PostOrderArr)
+print("000000000000000000000000000000000000000000000000000000000000000000000000000000000")
 
-print("-------------------------------------------------------------------------------")
-arrNodos=[16,5,7,12,9,20,18,3,10,14]
-nodoRaiz= None
+#00000000000000000000000000000000000000000000000000000000000000000
+print("nodo raiz :"+str(numero))
+nodoRaiz=numero
 
-
-for i in range (0,len(arrNodos),1):
+for i in range (0,len(ArrayNum),1):
     if i == 0 :
-        nodoRaiz = nodo (arrNodos[i])
+        nodoRaiz = nodo (ArrayNum[i])
     else:
-        nodoOrdenados(nodoRaiz,nodo(arrNodos[i]))
+        nodoOrdenados(nodoRaiz,nodo(ArrayNum[i]))
         
 pass
-
-
 Printarbol(nodoRaiz)
+
+print("recorrido de arbol ordenado:")
