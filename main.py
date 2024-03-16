@@ -1,3 +1,4 @@
+
 import pandas as pd
 from libs import *
 inOrderArr=[]
@@ -8,18 +9,19 @@ numero=int(input("Cual es mi numero?"))
 archivo=input("Cual es el nombre del archivo a procesar?")
 
 df=pd.read_excel(archivo)
-print(df)
+marcarNum(archivo,numero)
 
-print("000000000000000000000000000000000000000000000000000000")
-ArrayNum=df
-###### numero en rojo 
+
+print("----------------------------------------------------------")
+print("\033[34m arbol binario simetrico:\033[0m")
+ArrayNum=df.values.flatten().tolist()
 
 #arbol simetrico 
 
-NodoRaiz=nodo(0)
+NodoRaiz=nodo(ArrayNum[0])
 
 for i in range (1,len(ArrayNum),1):
-    Agreganodos(NodoRaiz,ArrayNum[1])
+    Agreganodos(NodoRaiz,ArrayNum[i])
 Printarbol(NodoRaiz)
 
 LVR(NodoRaiz,inOrderArr)
@@ -33,9 +35,10 @@ print ("PreOrder:")
 print(PreOrderArr)
 print("PostOrder:")
 print (PostOrderArr)
-print("000000000000000000000000000000000000000000000000000000000000000000000000000000000")
+print("-----------------------------------------------------------")
 
 #00000000000000000000000000000000000000000000000000000000000000000
+print("\033[34m arbol ordenado :\033[0m")
 print("nodo raiz :"+str(numero))
 nodoRaiz=numero
 
@@ -49,3 +52,7 @@ pass
 Printarbol(nodoRaiz)
 
 print("recorrido de arbol ordenado:")
+
+LVR(nodoRaiz,inOrderArr)
+print("Recorrido del arbol ordenado:")
+print(inOrderArr)

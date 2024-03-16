@@ -1,4 +1,30 @@
 from .classes import *
+import openpyxl
+import pandas as pd
+
+
+
+
+def marcarNum(archivo, numero):
+    # Cargar el archivo Excel
+    wb = openpyxl.load_workbook(archivo)
+    sheet = wb.active
+
+    # Leer el contenido del archivo Excel y convertirlo a un DataFrame de pandas
+    data = sheet.values
+    df = pd.DataFrame(data, columns=[col[0].value for col in sheet.iter_cols()])
+
+    print("\033[34m Contenido del archivo Excel:\033[0m")
+    
+    for index, row in df.iterrows():
+        for col_name, cell_value in row.items():
+            if cell_value == numero:
+                df.loc[index, col_name] = f"\033[91m{numero}\033[0m"
+
+    print(df)
+
+
+
 def linkhijo (nodoPadre, nodoHijoiz=None , nodoHijoDer=None):
     if nodoHijoiz is not None :
         nodoPadre.izq =nodoHijoiz
