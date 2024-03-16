@@ -4,7 +4,7 @@ from libs import *
 inOrderArr=[]
 PreOrderArr=[]
 PostOrderArr=[]
-
+print("\033[34m Xeli Vargas n:33 \033[0m")
 numero=int(input("Cual es mi numero?"))
 archivo=input("Cual es el nombre del archivo a procesar?")
 
@@ -51,7 +51,7 @@ for i in range (0,len(ArrayNum),1):
 pass
 Printarbol(nodoRaiz)
 
-print("recorrido de arbol ordenado:")
+
 
 LVR(nodoRaiz,inOrderArr)
 print("Recorrido del arbol ordenado:")
