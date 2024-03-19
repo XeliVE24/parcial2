@@ -25,6 +25,7 @@ def marcarNum(archivo, numero):
 
 
 
+
 def linkhijo (nodoPadre, nodoHijoiz=None , nodoHijoDer=None):
     if nodoHijoiz is not None :
         nodoPadre.izq =nodoHijoiz

@@ -20,7 +20,7 @@ ArrayNum=df.values.flatten().tolist()
 
 NodoRaiz=nodo(ArrayNum[0])
 
-for i in range (1,len(ArrayNum),1):
+for i in range (0,len(ArrayNum),1):
     Agreganodos(NodoRaiz,ArrayNum[i])
 Printarbol(NodoRaiz)
 
@@ -40,16 +40,13 @@ print("-----------------------------------------------------------")
 #00000000000000000000000000000000000000000000000000000000000000000
 print("\033[34m arbol ordenado :\033[0m")
 print("nodo raiz :"+str(numero))
-nodoRaiz=numero
-
-for i in range (0,len(ArrayNum),1):
-    if i == 0 :
-        nodoRaiz = nodo (ArrayNum[i])
-    else:
-        nodoOrdenados(nodoRaiz,nodo(ArrayNum[i]))
-        
-pass
+nodoRaiz = nodo(numero)
+for i in range (1,len(ArrayNum),1):
+        nodoOrdenados(nodoRaiz,nodo(ArrayNum[i-1]))
 Printarbol(nodoRaiz)
+
+
+
 
 
 
